@@ -1,0 +1,11 @@
+{% extends 'layout.html' %}
+
+{% block main %}
+<div class="centered-content">
+    <img class="logo-img" src="static/images/error1.jpg" alt="error"></a>
+    <h2>{{ message }}</h2>
+    <a href="/login"><button class="btn btn-light">login again</button></a>
+    <a href="/register"><button class="btn btn-dark">register again</button></a>
+</div>
+{% endblock %}
+

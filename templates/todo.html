@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    TODO list
+{% endblock %}
+
+{% block main %}
+<div class="container mt-5">
+    <h1 class="mb-4"><span  style="color: blue;">My <span style="color:brown">TODO </span></span><span  style="color: green;">List</span></h1>
+    <form action="/todo" method="POST">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" name="todo" autocomplete="off" placeholder="Add a new task" aria-label="Add a new task" aria-describedby="add-btn">
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="submit" id="add-btn">Add</button>
+            </div>
+        </div>
+    </form>
+
+    <div class="container mt-4">
+        <div style="display: flex; justify-content: center;">
+        <h2><span  style="color: Gold;">My</span><span  style="color: green;">Tasks</span></h2>
+        </div>
+        <div style="display: flex; justify-content: center;">
+            <form action="/remove_todo" method="post">
+                <button type="submit" class="btn btn-outline-danger">Remove All</button>
+            </form>
+          </div>
+
+          <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                {% for item in todo_items %}
+                <tr class="table-active"><td>{{ item.todo }}</td></tr>
+                {% endfor %}
+            </table>
+          </div>
+
+
+    </div>
+</div>
+{% endblock %}
+
